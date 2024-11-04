@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h2>Пользователь: {{ username }}</h2>
+	{% if current_user.username == username %}
+		<a href="/logout">Выйти из аккаунта</a>
+	{% endif %}
+	<h3 style='text-align: center;'>Посты</h3>
+	{% for post in posts %}
+		{% if post.author == username %}
+			<div class="posts">
+				<div class="post">
+					<div class="header">
+						<h2>{{ post.title }}</h2>
+					</div>
+						{{ post.content }}
+					<hr>
+					Дата: {{ post.created_on }}
+				</div>
+			</div>
+		{% endif %}
+	{% endfor %}
+{% endblock %}

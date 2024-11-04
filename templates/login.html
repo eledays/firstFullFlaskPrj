@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h2>Вход в аккаунт</h2>
+
+	<form method="POST">
+
+		{% for msg in get_flashed_messages() %}
+			<div class="error">
+				{{ msg }}
+			</div>
+		{% endfor %}
+
+		Введите имя пользователя:
+		<input type="text" name='username' placeholder="Имя пользователя"><br>
+		Введите пароль:
+		<input type="password" name='password' placeholder="Пароль"><br>
+		<br>
+		<input type="submit" class='btn'>
+		<br>
+	</form>
+{% endblock %}
